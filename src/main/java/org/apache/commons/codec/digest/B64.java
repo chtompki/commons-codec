@@ -18,7 +18,6 @@ package org.apache.commons.codec.digest;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Base64 like method to convert binary bytes into ASCII chars.
@@ -68,7 +67,7 @@ class B64 {
     /**
      * Generates a string of random chars from the B64T set.
      * <p>
-     * The salt is generated with {@link ThreadLocalRandom}.
+     * The salt is generated with {@link SecureRandom}.
      * </p>
      *
      * @param num
