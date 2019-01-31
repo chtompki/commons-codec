@@ -74,7 +74,7 @@ public class Md5Crypt {
      * @see #apr1Crypt(byte[], String)
      */
     public static String apr1Crypt(final byte[] keyBytes) {
-        return apr1Crypt(keyBytes, APR1_PREFIX + B64.getRandomSalt(8));
+        return apr1Crypt(keyBytes, APR1_PREFIX + B64.getRandomSalt(8, org.apache.commons.codec.digest.SecureRandom.DEFAULT));
     }
 
     /**
@@ -161,7 +161,7 @@ public class Md5Crypt {
      * @see #md5Crypt(byte[], String)
      */
     public static String md5Crypt(final byte[] keyBytes) {
-        return md5Crypt(keyBytes, MD5_PREFIX + B64.getRandomSalt(8));
+        return md5Crypt(keyBytes, MD5_PREFIX + B64.getRandomSalt(8, org.apache.commons.codec.digest.SecureRandom.DEFAULT));
     }
 
     /**
@@ -212,7 +212,7 @@ public class Md5Crypt {
         // Extract the real salt from the given string which can be a complete hash string.
         String saltString;
         if (salt == null) {
-            saltString = B64.getRandomSalt(8);
+            saltString = B64.getRandomSalt(8, org.apache.commons.codec.digest.SecureRandom.DEFAULT);
         } else {
             final Pattern p = Pattern.compile("^" + prefix.replace("$", "\\$") + "([\\.\\/a-zA-Z0-9]{1,8}).*");
             final Matcher m = p.matcher(salt);

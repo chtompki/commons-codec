@@ -72,9 +72,9 @@ class B64 {
      * @param num
      *            Number of chars to generate.
      */
-    static String getRandomSalt(final int num) {
+    static String getRandomSalt(final int num, String randomInstance) {
         final StringBuilder saltString = new StringBuilder(num);
-        final ThreadLocalRandom current = ThreadLocalRandom.current();
+        final SecureRandom current = SecureRandom.getInstance(randomInstance);
         for (int i = 1; i <= num; i++) {
             saltString.append(B64T.charAt(current.nextInt(B64T.length())));
         }
