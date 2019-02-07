@@ -1,3 +1,26 @@
+              Apache Commons Codec 1.11.1 RELEASE NOTES
+
+The Apache Commons Codec team is pleased to announce the commons-codec-1.11.1 release!
+
+The Apache Commons Codec package contains simple encoder and decoders for
+     various formats such as Base64 and Hexadecimal.  In addition to these
+     widely used encoders and decoders, the codec package also maintains a
+     collection of phonetic encoding utilities.
+
+Changes in this version include:
+
+
+Fixed Bugs:
+o Use SecureRandom instead of Random  Issue: CODEC-252.
+
+
+
+Have fun!
+-Apache Commons Codec team
+
+
+-------------------------------------------------------------------------------
+
               Apache Commons Codec 1.11 RELEASE NOTES
 
 The Apache Commons Codec team is pleased to announce the commons-codec-1.11-SNAPSHOT release!
