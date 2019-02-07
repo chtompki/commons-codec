@@ -16,6 +16,8 @@
  */
 package org.apache.commons.codec.digest;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Random;
 
 /**
@@ -71,8 +73,13 @@ class B64 {
      */
     static String getRandomSalt(final int num) {
         final StringBuilder saltString = new StringBuilder();
-        for (int i = 1; i <= num; i++) {
-            saltString.append(B64T.charAt(new Random().nextInt(B64T.length())));
+        try {
+            SecureRandom secureRandom = SecureRandom.getInstance("SHA1PRNG");
+            for (int i = 1; i <= num; i++) {
+                saltString.append(B64T.charAt(secureRandom.nextInt(B64T.length())));
+            }
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException(e);
         }
         return saltString.toString();
     }

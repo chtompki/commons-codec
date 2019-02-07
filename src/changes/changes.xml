@@ -42,6 +42,10 @@ The <action> type attribute can be add,update,fix,remove.
     <author>Apache Commons Developers</author>
   </properties>
   <body>
+    <release version="1.11" date="2019-02-07" description=" Bug fix release.">
+      <action issue="CODEC-252" dev="chtompki" type="fix">Use SecureRandom instead of Random</action>
+    </release>
+
     <release version="1.11" date="2017-MM-DD" description="Feature and fix release.">
       <!-- The first attribute below should be the issue id; makes it easier to navigate in the IDE outline -->
 
